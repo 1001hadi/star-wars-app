@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  {Container, Table}  from 'react-bootstrap';
+import Fetch from './Fetch';
+
 function List() {
+  const {data, loading, error} = Fetch("https://swapi.dev/api/people/");
+  if(loading){
+    return <h1>loading...</h1>
+  }
+  if(error) console.log(error);
+  console.log(data);
+
   return (
     <div>
         <Container style={{marginTop: 30}}>
@@ -17,86 +26,19 @@ function List() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                    <td>Max</td>
-                    <td>234/2/4</td>
-                    <td>123</td>
-                    <td>56</td>
-                    <td>nepton</td>
-                    <td>milky</td>
-                </tr>
-                <tr>
-                    <td>Max</td>
-                    <td>234/2/4</td>
-                    <td>123</td>
-                    <td>56</td>
-                    <td>nepton</td>
-                    <td>milky</td>
-                </tr>
-                <tr>
-                    <td>Max</td>
-                    <td>234/2/4</td>
-                    <td>123</td>
-                    <td>56</td>
-                    <td>nepton</td>
-                    <td>milky</td>
-                </tr>
-                <tr>
-                    <td>Max</td>
-                    <td>234/2/4</td>
-                    <td>123</td>
-                    <td>56</td>
-                    <td>nepton</td>
-                    <td>milky</td>
-                </tr>
-                <tr>
-                    <td>Max</td>
-                    <td>234/2/4</td>
-                    <td>123</td>
-                    <td>56</td>
-                    <td>nepton</td>
-                    <td>milky</td>
-                </tr>
-                <tr>
-                    <td>Max</td>
-                    <td>234/2/4</td>
-                    <td>123</td>
-                    <td>56</td>
-                    <td>nepton</td>
-                    <td>milky</td>
-                </tr>
-                <tr>
-                    <td>Max</td>
-                    <td>234/2/4</td>
-                    <td>123</td>
-                    <td>56</td>
-                    <td>nepton</td>
-                    <td>milky</td>
-                </tr>
-                <tr>
-                    <td>Max</td>
-                    <td>234/2/4</td>
-                    <td>123</td>
-                    <td>56</td>
-                    <td>nepton</td>
-                    <td>milky</td>
-                </tr>
-                <tr>
-                    <td>Max</td>
-                    <td>234/2/4</td>
-                    <td>123</td>
-                    <td>56</td>
-                    <td>nepton</td>
-                    <td>milky</td>
-                </tr>
-                <tr>
-                    <td>Max</td>
-                    <td>234/2/4</td>
-                    <td>123</td>
-                    <td>56</td>
-                    <td>nepton</td>
-                    <td>milky</td>
-                </tr>
+                {data.results.map((charactor,index) => {
+                    return (
+                    <tr key={index}>
+                      <td>{charactor.name}</td>
+                      <td>{charactor.birth_year}</td>
+                      <td>{charactor.height}cm</td>
+                      <td>{charactor.mass === 'unknown' || charactor.mass + 'kg'}</td>
+                      <td>{charactor.homeworld}</td>
+                      <td>{charactor.species}</td>
+                    </tr>
+                    )}
+                )}
+                
               </tbody>
           </Table>
         </Container>
