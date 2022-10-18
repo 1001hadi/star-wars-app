@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  {Container, Table}  from 'react-bootstrap';
+// import axios from 'axios';
 import Fetch from './Fetch';
 
+
 function List() {
-  const {data, loading, error} = Fetch("https://swapi.dev/api/people/");
-  if(loading){
-    return <h1>loading...</h1>
-  }
-  if(error) console.log(error);
-  console.log(data);
+  const characters = Fetch("https://swapi.dev/api/people/");
 
   return (
     <div>
@@ -26,19 +23,18 @@ function List() {
                 </tr>
               </thead>
               <tbody>
-                {data.results.map((charactor,index) => {
+                {characters.map((character,index) => {
                     return (
                     <tr key={index}>
-                      <td>{charactor.name}</td>
-                      <td>{charactor.birth_year}</td>
-                      <td>{charactor.height}cm</td>
-                      <td>{charactor.mass === 'unknown' || charactor.mass + 'kg'}</td>
-                      <td>{charactor.homeworld}</td>
-                      <td>{charactor.species}</td>
+                      <td>{character.name}</td>
+                      <td>{character.birth_year}</td>
+                      <td>{character.height}cm</td>
+                      <td>{character.mass === 'unknown' || character.mass + 'kg'}</td>
+                      <td>{character.homeworldName}</td>
+                      <td>{character.speciesName}</td>
                     </tr>
                     )}
                 )}
-                
               </tbody>
           </Table>
         </Container>
