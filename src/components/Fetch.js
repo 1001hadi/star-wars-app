@@ -21,6 +21,7 @@ function Fetch(url) {
 
       for(let char of chars) {
         char.homeworldName = await getHomeworld(char.homeworld);
+
         if(char.species.length){
           char.speciesName = await getSpecies(char.species);
         } else {

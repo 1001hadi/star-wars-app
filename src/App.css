@@ -1,6 +1,6 @@
 
 *{
-  background-color: #565555;
+  background-color: #0495a3;
 }
 .App {
   text-align: center;
@@ -8,15 +8,41 @@
 }
 
 .header h2 {
-  color: white;
-  text-shadow: 3px 3px 5px #000000;;
+  color: #000;
+  font-weight: bold;
 }
 
 .search {
-/* max-width: 50%; */
 display: flex;
 gap: 20px;
 justify-content: center;
 height: 50px;
 }
 
+.paginationBtn {
+  list-style: none;
+  height: 30px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginationBtn a {
+  padding: 10px;
+  margin: 8px;
+  border: 1px solid #555 ;
+  border-radius: 5px;
+  background-color: #777;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.paginationBtn a:hover {
+  color: #000;
+}
+
+.activedBtn {
+  color: #fff;
+}
