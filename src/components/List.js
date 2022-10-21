@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  {Container, Table}  from 'react-bootstrap';
+import '../App.css';
 
 function List({characters}) {
-
   return (
     <div>
         <Container style={{marginTop: 30}}>
@@ -18,7 +18,7 @@ function List({characters}) {
                 </tr>
               </thead>
               <tbody>
-                 {characters.map((character,index) => {
+                 {!characters ? <h1 className='loading'>Loading...</h1> : characters.map((character,index) => {
                     return (
                     <tr key={index}>
                       <td>{character.name}</td>

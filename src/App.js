@@ -47,7 +47,12 @@ function App() {
     getData();
   },[curPageUrrl]);
 
+  if(!characters.length){
+    return 'Loading...'
+  }
+
   return (
+    
     <div className="App">
       <Header/> 
       <Search
