@@ -6,7 +6,7 @@ function Header() {
   return (
     <div className='header' style={{margin: 20}}>
         <Container responsive="md">
-            <h2>Collect Info of Your Favorite Star War Characters.</h2>
+            <h2>Collect Info of Your Favorite Star Wars Characters.</h2>
         </Container>
     </div>
   )
