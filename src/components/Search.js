@@ -5,8 +5,8 @@ import  {Container, Form, Button}  from 'react-bootstrap';
 import axios from 'axios';
 
 function Search({ setCurPageUrrl ,setCharacters, curPageUrrl, setPageNumber}) {
-  const [searchInput, setSearchInput] = useState('');
-  const [search, setSearch] = useState('');
+  const [searchInput, setSearchInput] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     setCurPageUrrl(`https://swapi.dev/api/people/?search=${searchInput}`)

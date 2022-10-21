@@ -7,9 +7,10 @@ import Search from './components/Search';
 import Pagination  from './components/Pagination';
 
 function App() {
+  const baseUrl = "https://swapi.dev/api/people/?page=1";
   const [characters, setCharacters] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
-  const [curPageUrrl, setCurPageUrrl] = useState("https://swapi.dev/api/people/?page=1");
+  const [curPageUrrl, setCurPageUrrl] = useState(baseUrl);
   const [prevPageUrl, setPrevPageUrl] = useState('');
   const [nextPageUrl, setNextPageUrl] = useState('');
 
