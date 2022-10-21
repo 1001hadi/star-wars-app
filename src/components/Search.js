@@ -26,8 +26,8 @@ function Search({ setCurPageUrrl ,setCharacters, curPageUrrl, setPageNumber}) {
 
   const handleSubmit = () => {
     setSearchInput(search);
-    setSearch("");
     setPageNumber(1)
+    setSearch("");
   };
 
   const clearSearch = () => {
