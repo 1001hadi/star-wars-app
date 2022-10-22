@@ -13,7 +13,9 @@ function Search({ setCurPageUrrl ,setCharacters, curPageUrrl, setPageNumber}) {
 
     axios.get(curPageUrrl)
     .then(response => {
+      
       setCharacters(response.data.results)
+      
     })
     .catch(error => {
         console.log(error)
@@ -21,31 +23,33 @@ function Search({ setCurPageUrrl ,setCharacters, curPageUrrl, setPageNumber}) {
   }, [searchInput]);
 
   const validSearch = search.length > 0;
-
+  
   const handleSearch = (e) => setSearch(e.target.value);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setSearchInput(search);
-    setPageNumber(1)
+    setPageNumber(1);
     setSearch("");
   };
-
-  const clearSearch = () => {
+  
+  const clearSearch = (e) => {
+    e.preventDefault();
     setSearch("");
     setCurPageUrrl(curPageUrrl);
   }
 
   return (
     <div style={{marginTop: 30}}>
-        <Container>
-            <Form responsive="md">
-                <div className="search">
-                    <Form.Control type='text' value={search} placeholder='Search your favorite characters here...' onChange={handleSearch}/>
-                    {validSearch && <Button variant="warning" size='lg' onClick={clearSearch}>Clear</Button>}
-                    <Button variant="secondary" size='lg' onClick={handleSubmit}>Search</Button>
-                </div>
-            </Form>
-        </Container>
+       <Container>
+          <Form responsive="md" onSubmit={handleSubmit}>
+            <div className="search">
+              <Form.Control type='text' value={search} placeholder='Search your favorite characters...' onChange={handleSearch}/>
+              {validSearch && <Button variant="warning" size='lg' onClick={clearSearch}>Clear</Button>}
+              <Button type='submit' variant="secondary" size='lg'>Search</Button>
+            </div>
+          </Form>
+      </Container>
     </div>
   )
 }
