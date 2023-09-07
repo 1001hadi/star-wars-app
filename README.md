@@ -2,7 +2,7 @@
 
 ## This application is written with JavaScrip, React.js, Bootstrap and CSS.
 
-You can try it Here: https://starwars1001.herokuapp.com/
+You can try it [Here](https://starwars1001.herokuapp.com/)
 
 #
 ![ST W 1](https://user-images.githubusercontent.com/62669085/197240451-28ad3316-39bb-4006-baed-00f4af8354db.jpg)
@@ -21,4 +21,4 @@ You can try it Here: https://starwars1001.herokuapp.com/
 The Star Wars API app is my 6th project with SDMMP and 2nd project that was written in React and 1st project I used axios  fetch API data and using async/await. This project was challenging for me and  I struggled quite a bit to correctly access the API data and how to render it properly into my project, I learned a lot through the process and have gotten a lot more confident about programming with React using state and hooks. I'm super happy to improve my skills and head to the next challenge(project).
 
 ## Author
-### Hadi Jafari 
+### Hadi Jafari  
